@@ -44,7 +44,8 @@ class TestBooksCollector:
 
         assert collector.get_books_genre() == {'Завтра я иду убивать': ''}
 
-    def test_get_book_genre_book_with_genre_get_genre(self):
+    #добавил проверку вывода жанра книги по названия
+    def test_get_book_genre_output_genre_book_by_book_title(self):
         collector = BooksCollector()
 
         collector.add_new_book('Властелин колец')
@@ -104,3 +105,12 @@ class TestBooksCollector:
         collector.delete_book_from_favorites('Как закалялась сталь')
 
         assert len(collector.get_list_of_favorites_books()) == 0
+
+    # Добавил проверку вывода списка избранного
+    def  test_get_list_of_favorites_book_outputs_list_favorites_book(self):
+        collector = BooksCollector()
+        collector.add_new_book('Эрагон')
+        collector.add_book_in_favorites('Эрагон')
+
+        assert collector.get_list_of_favorites_books() == ['Эрагон']
+
